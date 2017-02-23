@@ -1,1 +1,2 @@
-./auth_data.py
+auth_data.py
+*.pyc
