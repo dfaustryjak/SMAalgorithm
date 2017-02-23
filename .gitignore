@@ -1,3 +1,5 @@
 auth_data.py
 *.pyc
 __pycache__
+.idea
+tester.py
