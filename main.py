@@ -1,3 +1,5 @@
 import SMA
+
+
 if __name__ == "__main__":
-    SMA()
+    SMA.combinatorics_generator()

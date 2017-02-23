@@ -20,16 +20,18 @@ def smaalgo(vector_15,vector_45,dates,name,close_price_vector):
         to_break_value = iterator + 2
         if(to_break_value>len(vector_45_sma)):
             break
+        if (to_break_value > len(vector_15_sma)):
+            break
         tmp_1_15_sma = vector_15_sma[iterator]
         tmp_2_15_sma = vector_15_sma[iterator + 1]
         tmp_1_45_sma = vector_45_sma[iterator]
         tmp_2_45_sma = vector_45_sma[iterator + 1]
 
         if ((tmp_1_15_sma < tmp_1_45_sma) and (tmp_2_15_sma > tmp_2_45_sma)):
-            print(dates[iterator])
-            print("Actual close price is : " + str(float(close_price_vector[iterator][0])))
+            # print(dates[iterator])
+            # print("Actual close price is : " + str(float(close_price_vector[iterator][0])))
 
-            print("COUNT SUCCESS OF ALL EVENTS")
+            # print("COUNT SUCCESS OF ALL EVENTS")
             events+=1
             close_price=0.0
             avg_close_price=0.0
@@ -38,22 +40,22 @@ def smaalgo(vector_15,vector_45,dates,name,close_price_vector):
                 counter_avg+=1
                 if((len(close_price_vector))>iterator+current_date_of_event):
                     close_price+=float(close_price_vector[iterator+current_date_of_event][0])
-                    print(str(current_date_of_event) + ").-  " + str(float(close_price_vector[iterator+current_date_of_event][0])))
+                    # print(str(current_date_of_event) + ").-  " + str(float(close_price_vector[iterator+current_date_of_event][0])))
                     avg_bottom = iterator+current_date_of_event
                     if (counter_avg > 0):
                         avg_close_price=close_price/counter_avg
 
-            print("AVG ).-> " + str(avg_close_price))
+            # print("AVG ).-> " + str(avg_close_price))
             percent_result = (avg_close_price * 100)/float(close_price_vector[iterator][0])
             percent_result = percent_result - 100.0
-            print("Percent result ).-> " + str(percent_result))
+            # print("Percent result ).-> " + str(percent_result))
             percent_growth.append(percent_result)
 
             if(avg_close_price>float(close_price_vector[iterator][0])):
-                print("==================== OK ====================" )
-                print("ALL EVENTS : " +  str(events))
+                # print("==================== OK ====================" )
+                # print("ALL EVENTS : " +  str(events))
                 success_events += 1
-                print("SUCCES OF TACTIC -> " + str(success_events/events))
+                # print("SUCCES OF TACTIC -> " + str(success_events/events))
                 return success_events/events
 
 
